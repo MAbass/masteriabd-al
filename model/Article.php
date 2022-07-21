@@ -26,14 +26,6 @@
 			$data->closeCursor();
 			return $articles;
 		}
-		public static function getListByJoin()
-		{
-			$bdd = ConnexionManager::getInstance();
-			$data = $bdd->query('select Article.id as articleid, titre, contenu, dateCreation, dateModification, libelle from Article join Categorie C on C.id = Article.categorie;');
-			$articles = $data->fetchAll();
-			$data->closeCursor();
-			return $articles;
-		}
 
 		public static function getById($id)
 		{
