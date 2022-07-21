@@ -12,10 +12,9 @@
     <div></div>
     <div class="menu">
         <a href="index.php">Acceuil</a>
-        <a href="index.php?categorie=1">Magazine</a>
-        <a href="index.php?categorie=2">Sport</a>
-        <a href="index.php?categorie=3">Santé</a>
-        <a href="index.php?categorie=4">Politique</a>
+        <?php foreach ($categories as $categorie) :?>
+            <a href="index.php?categorie=<?php echo $categorie->id?>"><?php echo $categorie->libelle ?></a>
+        <?php endforeach?>
     </div>
     <?php if (!empty($articles)):?>
     <?php foreach ($articles as $article):?>

@@ -13,6 +13,7 @@ class Controller
 
     public function showIndex($categorieId)
     {
+        $categories = Categorie::getList();
         if ($categorieId == null) {
             $articles = Article::getList();
         } else {

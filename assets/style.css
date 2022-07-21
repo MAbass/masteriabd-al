@@ -1,30 +1,31 @@
 #entete {
-    font-size: 2em;
-    text-align: center;
-    text-transform: uppercase;
-    border: 3px ridge black;
+  font-size: 2em;
+  text-align: center;
+  text-transform: uppercase;
+  border: 3px ridge black;
 }
 
 #contenu {
-    float: left;
-    width: 80%;
-    text-align: justify;
-    /*border:1px solid yellow;*/
+  float: left;
+  width: 80%;
+  text-align: justify;
+  /*border:1px solid yellow;*/
 }
 
 .menu {
-    font-size: 22px;
-    display: flex;
-    justify-content: center;
-    background-color: #85d7be;
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+  background-color: #85d7be;
 }
 
 .menu a {
-    padding-left: 50px;
-    text-decoration: none;
-    height: 70px;
-    display: flex;
-    align-items: center;
+  padding-left: 50px;
+  text-decoration: none;
+  height: 70px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
 }
 
 .box {
@@ -33,3 +34,4 @@
   margin-top: 30px;
   padding: 30px 30px 30px 30px;
 }
+
