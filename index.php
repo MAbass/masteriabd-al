@@ -3,10 +3,10 @@ require_once 'controller/Controller.php';
 
 $controller = new Controller();
 
-if (isset($_GET['categorie'])) {
-    $controller->showIndex($_GET['categorie']);
+if (isset($_GET['action']) && isset($_GET['id'])) {
+    $controller->showIndex($_GET['action'], $_GET['id']);
 }
 
-$controller->showIndex(null);
+$controller->showIndex(null, null);
 
 ?>

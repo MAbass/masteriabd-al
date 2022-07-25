@@ -11,14 +11,27 @@ class Controller
 
     }
 
-    public function showIndex($categorieId)
+    public function showIndex($type, $id)
     {
         $categories = Categorie::getList();
-        if ($categorieId == null) {
-            $articles = Article::getList();
-        } else {
-            $articles = Article::getByCategoryId($categorieId);
+
+        switch ($type) {
+            case 'categorie':
+                $articles = Article::getByCategoryId($id);
+                require_once 'vue/index.php';
+                break;
+
+            case 'article':
+                $article = Article::getById($id);
+                require_once 'vue/index.php';
+                break;
+            
+            default:
+                # code...
+                break;
         }
+        $articles = Article::getList();
+        
         require_once 'vue/index.php';
     }
 }
