@@ -1,28 +1,36 @@
 <?php
-require_once 'model/Article.php';
-require_once 'model/Categorie.php';
+require_once 'model/domaine/Article.php';
+require_once 'model/domaine/Categorie.php';
 require_once 'model/ConnexionManager.php';
+require_once 'model/dao/ArticleDAO.php';
+require_once 'model/dao/CategorieDAO.php';
+
 
 class Controller
 {
 
+    private $articleDAO;
+    private $categorieDAO;
+
     function __construct()
     {
+        $this->categorieDAO = new CategorieDAO();
+        $this->articleDAO = new ArticleDAO();
 
     }
 
     public function showIndex($type, $id)
     {
-        $categories = Categorie::getList();
+        $categories = $this->categorieDAO->getList();
 
         switch ($type) {
             case 'categorie':
-                $articles = Article::getByCategoryId($id);
+                $articles = $this->articleDAO->getByCategoryId($id);
                 require_once 'vue/index.php';
                 break;
 
             case 'article':
-                $article = Article::getById($id);
+                $article = $this->categorieDAO->getById($id);
                 require_once 'vue/index.php';
                 break;
             
@@ -30,8 +38,7 @@ class Controller
                 # code...
                 break;
         }
-        $articles = Article::getList();
-        
+        $articles = $this->articleDAO->getList();
         require_once 'vue/index.php';
     }
 }
