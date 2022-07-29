@@ -6,6 +6,7 @@
 	{
         private $bdd;
 
+		
         public function __construct(){
             $this->bdd = ConnexionManager::getInstance();
         }
