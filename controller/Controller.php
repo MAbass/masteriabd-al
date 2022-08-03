@@ -26,12 +26,12 @@ class Controller
         switch ($type) {
             case 'categorie':
                 $articles = $this->articleDAO->getByCategoryId($id);
-                require_once 'vue/index.php';
+                require_once 'vue/homepage.php';
                 break;
 
             case 'article':
                 $article = $this->categorieDAO->getById($id);
-                require_once 'vue/index.php';
+                require_once 'vue/homepage.php';
                 break;
             
             default:
@@ -39,7 +39,7 @@ class Controller
                 break;
         }
         $articles = $this->articleDAO->getList();
-        require_once 'vue/index.php';
+        require_once 'vue/homepage.php';
     }
 }
 
