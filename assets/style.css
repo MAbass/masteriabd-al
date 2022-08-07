@@ -15,11 +15,12 @@
 .menu {
   font-size: 24px;
   display: flex;
-  justify-content: center;
-  background-color: #CCC5B9;
+  justify-content: space-between;
+  background-color: #ccc5b9;
+  align-items: center;
 }
 
-.menu a {
+.navigation a {
   padding-left: 50px;
   text-decoration: none;
   height: 70px;
@@ -34,3 +35,61 @@
   margin-top: 30px;
   padding: 30px 30px 30px 30px;
 }
+.navigation {
+  display: flex;
+  align-items: center;
+}
+.connection {
+  margin-right: 20px;
+}
+
+.connection a{
+  font-size: 18px;
+}
+
+.card {
+  border: none;
+  height: 320px;
+}
+
+.forms-inputs {
+  position: relative;
+}
+
+.forms-inputs span {
+  position: absolute;
+  top: -18px;
+  left: 10px;
+  background-color: #fff;
+  padding: 5px 10px;
+  font-size: 15px;
+}
+
+.forms-inputs input {
+  height: 50px;
+  border: 2px solid #eee;
+}
+
+.forms-inputs input:focus {
+  box-shadow: none;
+  outline: none;
+  border: 2px solid #000;
+}
+
+.btn {
+  height: 50px;
+}
+
+.success-data {
+  display: flex;
+  flex-direction: column;
+}
+
+.bxs-badge-check {
+  font-size: 90px;
+}
+
+input {
+  min-width: 100%;
+}
+
