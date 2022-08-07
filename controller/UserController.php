@@ -18,7 +18,7 @@ class UserController
 
     public function addNewUser($firstname, $lastname, $username, $password)
     {
-        $user = $this->userDAO->addNewUser($firstname, $lastname, $username, $password);
+        $userSaved = $this->userDAO->addNewUser($firstname, $lastname, $username, $password);
         $users = $this->userDAO->getAll();
         require_once 'vue/user.php';
     }
@@ -28,5 +28,21 @@ class UserController
         $user = $this->userDAO->deleteByUserId($id);
         $users = $this->userDAO->getAll();
         header("Location: /user");
+    }
+
+    public function updateUser($id)
+    {
+        $user = $this->userDAO->getUserById($id);
+        $users = $this->userDAO->getAll();
+        require_once 'vue/user.php';
+
+    }
+
+    public function modifyUser($id, $firstname, $lastname, $username, $password)
+    {
+        $result = $this->userDAO->updateUser($id, $firstname, $lastname, $username, $password);
+        $users = $this->userDAO->getAll();
+        require_once 'vue/user.php';
+
     }
 }

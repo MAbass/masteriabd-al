@@ -33,10 +33,18 @@ if (isset($_GET['action']) && $_GET['action'] != "") {
     }
     if ($action == 'user') {
         if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['firstname']) && isset($_POST['lastname'])) {
-            $userController->addNewUser($_POST['firstname'], $_POST['lastname'], $_POST['username'], $_POST['password']);
+            if (isset($_GET['id']) && $_GET['id'] != null) {
+                $userController->modifyUser($_GET['id'], $_POST['firstname'], $_POST['lastname'], $_POST['username'], $_POST['password']);
+            } else {
+                $userController->addNewUser($_POST['firstname'], $_POST['lastname'], $_POST['username'], $_POST['password']);
+            }
         }
+
         if (isset($_GET['type']) && $_GET['type'] == 'delete') {
             $userController->deleteUser($_GET['id']);
+        }
+        if (isset($_GET['type']) && $_GET['type'] == 'update') {
+            $userController->updateUser($_GET['id']);
         }
         $userController->showUsers();
     }

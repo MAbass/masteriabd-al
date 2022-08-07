@@ -20,7 +20,7 @@ RewriteCond "%{REQUEST_URI}" "login"
 RewriteRule login index.php?action=login
 
 RewriteCond "%{REQUEST_URI}" "user"
-RewriteRule user/?([0-9]?)/?(.*)? index.php?action=user&id=$1&type=$2
+RewriteRule user/?([0-9]+)?/?(.*)? index.php?action=user&id=$1&type=$2
 
 
 

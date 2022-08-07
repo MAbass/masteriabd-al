@@ -156,6 +156,9 @@
         #keywords tbody tr td.lalign {
             text-align: left;
         }
+        a{
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -163,17 +166,28 @@
 
 <div class="box">
     <div class="form">
-        <h1 class="text-header">Ajouter un utilisateur</h1>
+        <h1 class="text-header"><?php if (empty($user)) {
+                echo "Ajouter";
+            } ?>
+            <?php if (!empty($user)) {
+                echo "Modifier";
+            } ?> un utilisateur</h1>
         <div class="div-form">
             <form action="user" method="post">
                 <label>Prénom</label>
-                <input type="text" name="firstname" placeholder="Prénom..">
+                <input type="text" name="firstname" placeholder="Prénom.." value=<?php if (!empty($user)) {
+                    echo $user->firstname;
+                } ?>>
 
                 <label>Nom</label>
-                <input type="text" name="lastname" placeholder="Nom..">
+                <input type="text" name="lastname" placeholder="Nom.." value=<?php if (!empty($user)) {
+                    echo $user->lastname;
+                } ?>>
 
                 <label>Nom d'utilisateur</label>
-                <input type="text" name="username" placeholder="Nom d'utilisateur..">
+                <input type="text" name="username" placeholder="Nom d'utilisateur.." value=<?php if (!empty($user)) {
+                    echo $user->username;
+                } ?>>
 
 
                 <label>Mot de passe</label>
@@ -201,7 +215,7 @@
                         <td class="lalign"><?= $user->firstname ?></td>
                         <td><?= $user->lastname ?></td>
                         <td><?= $user->username ?></td>
-                        <td style="color: #477ca4">Modifier</td>
+                        <td style="color: #477ca4"><a href="/user/<?= $user->id ?>/update">Modifier</a></td>
                         <td style="color: #e14141"><a href="/user/<?= $user->id ?>/delete">Supprimer</a></td>
                     </tr>
                 <?php endforeach ?>
